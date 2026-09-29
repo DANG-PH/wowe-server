@@ -46,7 +46,7 @@ sequenceDiagram
 
 ```
 wowe-server/
-├─ docker-compose.yml        # MySQL, Redis, Adminer (+ profile "app" chạy cả server)
+├─ docker-compose.yml        # MySQL, Redis (+ profile "app" chạy cả server)
 ├─ Dockerfile                # build image server (multi-stage)
 ├─ src/
 │  ├─ main.ts                # bootstrap: prefix /api, Swagger, Helmet, CORS, ValidationPipe

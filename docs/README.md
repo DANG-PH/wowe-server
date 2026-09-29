@@ -27,7 +27,7 @@ WoWe — website bán quần áo nữ (Women's Wear). Monorepo gồm:
 | Sự kiện nội bộ | @nestjs/event-emitter (thay cho message broker trong kiến trúc monolith) |
 | Auth | JWT (access + refresh), Passport, bcrypt |
 | API Docs | Swagger / OpenAPI (`/api/docs`) |
-| Hạ tầng dev | Docker Compose (MySQL, Redis, Adminer) |
+| Hạ tầng dev | Docker Compose (MySQL, Redis) |
 
 ## Tài khoản demo (sau khi seed)
 

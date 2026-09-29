@@ -14,7 +14,7 @@ REST API cho **WoWe** — website bán quần áo nữ. Xây dựng bằng **Nes
 ```bash
 cp .env.example .env
 npm install
-docker compose up -d      # MySQL + Redis + Adminer
+docker compose up -d      # MySQL + Redis
 npm run seed              # dữ liệu mẫu tiếng Việt
 npm run start:dev         # http://localhost:4000/api
 ```

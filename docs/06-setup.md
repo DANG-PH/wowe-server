@@ -11,7 +11,7 @@ cd wowe-server
 cp .env.example .env          # chỉnh nếu cần (cổng, mật khẩu, JWT secret)
 npm install
 
-# Khởi động hạ tầng: MySQL + Redis + Adminer
+# Khởi động hạ tầng: MySQL + Redis
 docker compose up -d          # (npm run docker:up)
 
 # Nạp dữ liệu mẫu (danh mục, ~85 sản phẩm có ảnh, mã giảm giá, tài khoản)
@@ -23,8 +23,8 @@ npm run start:dev
 
 - API: `http://localhost:4000/api`
 - Swagger: `http://localhost:4000/api/docs`
-- Adminer (xem DB): `http://localhost:8080` (server `mysql`, user/pass theo `.env`)
 - Healthcheck: `http://localhost:4000/api/health`
+- Quản lý DB: dùng phpMyAdmin/DBeaver kết nối `localhost:3457` (user/pass theo `.env`). Trên VPS có thể trỏ phpMyAdmin sẵn có tới container `wowe-mysql` (qua host `3457` hoặc gắn vào network `wowe_wowe-net`, server `mysql`).
 
 ### Cổng mặc định (tránh xung đột trên VPS)
 | Dịch vụ | Cổng host | Trong container |
@@ -32,7 +32,6 @@ npm run start:dev
 | API NestJS | 4000 | 4000 |
 | MySQL | **3457** | 3306 |
 | Redis | **3456** | 6379 |
-| Adminer | 8080 | 8080 |
 
 > Ứng dụng kết nối MySQL qua `localhost:3457`, Redis qua `localhost:3456` (đã đặt sẵn trong `.env`).
 

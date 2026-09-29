@@ -1,4 +1,6 @@
-# Hạ tầng cho WoWe server: MySQL, Redis, RabbitMQ, Adminer.
+# Hạ tầng cho WoWe server: MySQL, Redis.
+# Quản lý DB dùng phpMyAdmin riêng trên VPS (kết nối tới container mysql qua host:3457
+# hoặc gắn phpMyAdmin vào network "wowe_wowe-net" với server "mysql").
 # Mặc định `docker compose up -d` chỉ chạy hạ tầng (app chạy bằng `npm run start:dev` trên host).
 # Chạy cả server trong container: `docker compose --profile app up -d --build`.
 name: wowe
@@ -42,19 +44,6 @@ services:
       interval: 10s
       timeout: 5s
       retries: 10
-    networks: [wowe-net]
-
-  adminer:
-    image: adminer:latest
-    container_name: wowe-adminer
-    restart: unless-stopped
-    ports:
-      - "${ADMINER_PORT:-8080}:8080"
-    environment:
-      ADMINER_DEFAULT_SERVER: mysql
-    depends_on:
-      mysql:
-        condition: service_healthy
     networks: [wowe-net]
 
   # App NestJS — chỉ chạy khi bật profile "app".
